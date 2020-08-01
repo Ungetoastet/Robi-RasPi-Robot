@@ -188,9 +188,9 @@ class mpu6050:
         else:
             gyro_scale_modifier = self.GYRO_SCALE_MODIFIER_250DEG
 
-        x = x / gyro_scale_modifier * 360
-        y = y / gyro_scale_modifier * 360
-        z = z / gyro_scale_modifier * 360
+        x = x / gyro_scale_modifier
+        y = y / gyro_scale_modifier
+        z = z / gyro_scale_modifier
 
         return {'x': x, 'y': y, 'z': z}
 
