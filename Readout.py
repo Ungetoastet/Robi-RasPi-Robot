@@ -3,5 +3,13 @@ import time
 
 print("Starting Readout")
 while True:
-    print("Ax:{:.4f}\tAy:{:.4f}\tAz:{:.4f}\tGx:{:.4f}\tGy:{:.4f}\tGz:{:.4f} ".format(Gyroscope.get_accel_data(Gyroscope)['x'], Gyroscope.get_accel_data(Gyroscope)['y'], Gyroscope.get_accel_data(Gyroscope)['z'], Gyroscope.get_gyro_data(Gyroscope)['x'], Gyroscope.get_gyro_data(Gyroscope)['y'], Gyroscope.get_gyro_data(Gyroscope)['z']))
+    try:
+        accel_data = Gyroscope.get_accel_data(Gyroscope)
+        gyro_data = Gyroscope.get_gyro_data(Gyroscope)
+
+        print("Ax:{:.4f}\tAy:{:.4f}\tAz:{:.4f}\tGx:{:.4f}\tGy:{:.4f}\tGz:{:.4f} ".format(accel_data['x'], accel_data['y'], accel_data['z'], gyro_data['x'], gyro_data['y'], gyro_data['z']))
+
+    except KeyboardInterrupt:
+        break
+
     time.sleep(1)
