@@ -74,9 +74,9 @@ class Gyroscope:
             print("Unknown range-accel_scale_modifier set to self.ACCEL_SCALE_MODIFIER_2G")
             accel_scale_modifier = self.ACCEL_SCALE_MODIFIER_2G
 
-        x = self.read_i2c_word(self.ACCEL_XOUT0)
-        y = self.read_i2c_word(self.ACCEL_YOUT0)
-        z = self.read_i2c_word(self.ACCEL_ZOUT0)
+        x = self.read_i2c_word(self.ACCEL_XOUT0) * 9.81
+        y = self.read_i2c_word(self.ACCEL_YOUT0) * 9.81
+        z = self.read_i2c_word(self.ACCEL_ZOUT0) * 9.81
 
         x = x / accel_scale_modifier
         y = y / accel_scale_modifier
