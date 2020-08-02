@@ -5,10 +5,8 @@ class Gyroscope:
     # Global Vars
     address = 0x68
     bus = None
-    ACCEL_CONFIG = 0x1C
     # MPU-6050 Registers
     PWR_MGMT_1 = 0x6B
-    PWR_MGMT_2 = 0x6C
     ACCEL_XOUT0 = 0x3B
     ACCEL_YOUT0 = 0x3D
     ACCEL_ZOUT0 = 0x3F
