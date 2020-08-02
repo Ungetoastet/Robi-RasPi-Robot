@@ -86,7 +86,7 @@ class Gyroscope:
 
     def get_gyro_data(self):
         x = math.atan(self.get_accel_data()["y"] / self.get_accel_data()["z"]) * (180/math.pi)
-        y = math.atan(self.get_accel_data()["z"] / self.get_accel_data()["x"]) * (180/math.pi)
+        y = math.atan(self.get_accel_data()["x"] / self.get_accel_data()["z"]) * (180/math.pi)
         z = math.atan(self.get_accel_data()["x"] / self.get_accel_data()["y"]) * (180/math.pi)
         return {"x": x, "y": y, "z": z}
 
