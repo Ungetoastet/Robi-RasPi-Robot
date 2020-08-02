@@ -31,22 +31,19 @@ class Gyroscope:
         # Wake up
         self.bus.write_byte_data(self.address, self.PWR_MGMT_1, 0x00)
     
-    def read_accel_range(self, raw = False):
+    def read_accel_range(self):
         raw_data = self.bus.read_byte_data(self.address, self.ACCEL_CONFIG)
 
-        if raw is True:
-            return raw_data
-        elif raw is False:
-            if raw_data == self.ACCEL_RANGE_2G:
-                return 2
-            elif raw_data == self.ACCEL_RANGE_4G:
-                return 4
-            elif raw_data == self.ACCEL_RANGE_8G:
-                return 8
-            elif raw_data == self.ACCEL_RANGE_16G:
-                return 16
-            else:
-                return -1
+        if raw_data == self.ACCEL_RANGE_2G:
+            return 2
+        elif raw_data == self.ACCEL_RANGE_4G:
+            return 4
+        elif raw_data == self.ACCEL_RANGE_8G:
+            return 8
+        elif raw_data == self.ACCEL_RANGE_16G:
+            return 16
+        else:
+            return -1
 
     def read_i2c_word(self, register):
         # Read data
