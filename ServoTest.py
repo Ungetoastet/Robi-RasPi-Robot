@@ -9,10 +9,9 @@ print("Starting Gyro Hookup")
 while True:
     try:
         gyro_data = gy.get_gyro_data()
-        angle1 = max(45, min(gyro_data["x"], -45))
-        servo0.angle = angle1
+        servo0.angle = max(-45, min(gyro_data["x"], 45))
         time.sleep(0.25)
-        
+
     except KeyboardInterrupt:
         break
 
