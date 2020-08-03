@@ -60,7 +60,7 @@ class Gyroscope:
     
     def get_accel_data(self):
         accel_scale_modifier = None
-        accel_range = self.read_accel_range(True)
+        accel_range = self.read_accel_range(raw=True)
 
         if accel_range == self.ACCEL_RANGE_2G:
             accel_scale_modifier = self.ACCEL_SCALE_MODIFIER_2G
