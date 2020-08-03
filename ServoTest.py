@@ -10,7 +10,7 @@ while True:
     try:
         gyro_data = gy.get_gyro_data()
         servo0.angle = max(-45, min(gyro_data["x"], 45))
-        time.sleep(0.25)
+        time.sleep(0.05)
 
     except KeyboardInterrupt:
         break
