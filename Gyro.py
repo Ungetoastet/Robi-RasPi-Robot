@@ -85,10 +85,13 @@ class Gyroscope:
         return {'x': x, 'y': y, 'z': z}
 
     def get_gyro_data(self):
-        x = math.atan(self.get_accel_data()["y"] / self.get_accel_data()["z"]) * (180/math.pi)
-        y = math.atan(self.get_accel_data()["x"] / self.get_accel_data()["z"]) * (180/math.pi)
-        z = math.atan(self.get_accel_data()["x"] / self.get_accel_data()["y"]) * (180/math.pi)
-        return {"x": x, "y": y, "z": z}
+        try:
+            x = math.atan(self.get_accel_data()["y"] / self.get_accel_data()["z"]) * (180/math.pi)
+            y = math.atan(self.get_accel_data()["x"] / self.get_accel_data()["z"]) * (180/math.pi)
+            z = math.atan(self.get_accel_data()["x"] / self.get_accel_data()["y"]) * (180/math.pi)
+            return {"x": x, "y": y, "z": z}
+        except ZeroDivisionError:
+            return {"x": 0, "y": 0, "z": 0}
 
 mpu = Gyroscope(0x68)
 
