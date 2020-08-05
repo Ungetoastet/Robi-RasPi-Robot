@@ -15,14 +15,13 @@ servo8 = AngularServo(25, min_angle=-45, max_angle=45)
 
 servos = [servo1, servo2, servo3, servo4, servo5, servo6, servo7, servo8]
 
-print("Beginning reset")
-
-i = 0
-for x in servos:
+while True:
+    i = input("Type Servo index to Test it: ")
+    i = int(i) - 1
     servos[i].min()
-    time.sleep(0.5)
-    print("Resetted servo " + str(i))
-    i += 1
-
-print("Reset done! Press Ctrl+C to exit")
-pause()
+    time.sleep(1)
+    servos[i].mid()
+    time.sleep(1)
+    servos[i].max()
+    time.sleep(1)
+    servos[i].min()
