@@ -1,6 +1,5 @@
 from gpiozero import AngularServo
 import time
-from signal import pause
 
 print("Initialising Servos...")
 
