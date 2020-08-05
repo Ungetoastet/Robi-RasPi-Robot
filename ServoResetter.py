@@ -1,5 +1,6 @@
 from gpiozero import AngularServo
 import time
+from signal import pause
 
 print("Initialising Servos...")
 
@@ -18,9 +19,10 @@ print("Beginning reset")
 
 i = 0
 for x in servos:
-    servos[i].mid()
+    servos[i].min()
     time.sleep(0.5)
     print("Resetted servo " + str(i))
     i += 1
 
-print("Reset done!")
+print("Reset done! Press Ctrl+C to exit")
+pause()
