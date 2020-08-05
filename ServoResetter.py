@@ -16,9 +16,11 @@ servos = [servo1, servo2, servo3, servo4, servo5, servo6, servo7, servo8]
 
 print("Beginning reset")
 
+i = 0
 for x in servos:
-    servos[x].mid()
+    servos[i].mid()
     time.sleep(0.5)
-    print("Resetted!")
+    print("Resetted servo " + str(i))
+    i += 1
 
 print("Reset done!")
