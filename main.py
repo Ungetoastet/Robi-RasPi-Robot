@@ -57,14 +57,14 @@ while True:
                 servos[2].mid()
                 servos[3].mid()
                 time.sleep(1)
-                servos[0].max()
-                servos[1].min()
-                servos[2].max()
-                servos[3].min()
-                time.sleep(1)
+                servos[0].min()
+                servos[1].max()
+                servos[2].min()
+                servos[3].max()
+                time.sleep(0.5)
             except KeyboardInterrupt:
                 active = False
-                
+
     elif command == "shutdown":
         servos[0].mid()
         servos[1].mid()
