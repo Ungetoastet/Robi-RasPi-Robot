@@ -11,12 +11,12 @@ for x in gpio:
     iteration += 1
 
 while True:
-    servos[0].mid()
-    servos[1].mid()
-    servos[2].mid()
-    servos[3].mid()
-    servos[4].min()
-    servos[5].max()
-    servos[6].min()
-    servos[7].max()
+    servos[0].max()
+    servos[1].min()
+    servos[2].max()
+    servos[3].min()
+    servos[4].max()
+    servos[5].min()
+    servos[6].max()
+    servos[7].min()
     time.sleep(1)
