@@ -15,7 +15,7 @@ while True:
     if command == "help":
         print("standby: Lay down")
         print("idle: Stand up")
-        print("wiggle: Stand up and shake")
+        print("pushups: Stand up and do pushups")
         print("shutdown: Lay down and quit")
 
     elif command == "standby":
@@ -40,15 +40,7 @@ while True:
         servos[7].max()
         time.sleep(1)
 
-    elif command == "wiggle":
-        servos[0].mid()
-        servos[1].mid()
-        servos[2].mid()
-        servos[3].mid()
-        servos[4].min()
-        servos[5].max()
-        servos[6].min()
-        servos[7].max()
+    elif command == "pushups":
         active = True
         while active:
             try:
