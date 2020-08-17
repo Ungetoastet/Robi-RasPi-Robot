@@ -4,6 +4,7 @@ import time
 print("Initialising Servos...")
 
 gpio = [4, 17, 18, 27, 22, 23, 24, 25]
+angleMult = [1, -1, 1, -1, 1, -1, 1, -1]
 servos = []
 iteration = 0
 for x in gpio:
@@ -19,61 +20,37 @@ while True:
         print("shutdown: Lay down and quit")
 
     elif command == "standby":
-        servos[0].mid()
-        servos[1].mid()
-        servos[2].mid()
-        servos[3].mid()
-        servos[4].max()
-        servos[5].min()
-        servos[6].max()
-        servos[7].min()
+        for x in range(3):
+            servos[x].angle = 0
+            servos[x + 4].angle = 45 * angleMult[x + 4] 
+            
         time.sleep(1)
 
     elif command == "idle":
-        servos[0].mid()
-        servos[1].mid()
-        servos[2].mid()
-        servos[3].mid()
-        servos[4].min()
-        servos[5].max()
-        servos[6].min()
-        servos[7].max()
+        for x in range(3):
+            servos[x].angle = 25
+            servos[x + 4].angle = -45 * angleMult[x + 4]
         time.sleep(1)
 
     elif command == "pushups":
         active = True
         while active:
             try:
-                servos[0].mid()
-                servos[1].mid()
-                servos[2].mid()
-                servos[3].mid()
-                servos[4].min()
-                servos[5].max()
-                servos[6].min()
-                servos[7].max()
+                for x in range(3):
+                    servos[x].angle = 0
+                    servos[x + 4].angle = -45 * angleMult[x + 4]
                 time.sleep(1)
-                servos[0].min()
-                servos[1].max()
-                servos[2].min()
-                servos[3].max()
-                servos[4].mid()
-                servos[5].mid()
-                servos[6].mid()
-                servos[7].mid()
+                for x in range(3):
+                    servos[x].angle = -45 * angleMult[x]
+                    servos[x + 4].angle = 0
                 time.sleep(0.5)
             except KeyboardInterrupt:
                 active = False
 
     elif command == "shutdown":
-        servos[0].mid()
-        servos[1].mid()
-        servos[2].mid()
-        servos[3].mid()
-        servos[4].max()
-        servos[5].min()
-        servos[6].max()
-        servos[7].min()
+        for x in range(3):
+            servos[x].angle = 0
+            servos[x + 4].angle = 45 * angleMult[4]
         time.sleep(1)
         quit()
     
