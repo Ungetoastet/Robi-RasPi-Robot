@@ -28,7 +28,7 @@ while True:
 
     elif command == "idle":
         for x in range(3):
-            servos[x].angle = 25
+            servos[x].angle = 25 * angleMult[x]
             servos[x + 4].angle = -45 * angleMult[x + 4]
         time.sleep(1)
 
